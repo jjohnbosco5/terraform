@@ -4,7 +4,7 @@ resource "azurerm_linux_virtual_machine" "mylinuxvm" {
   computer_name = "devlinux-vm1"  # Hostname of the VM
   resource_group_name = azurerm_resource_group.myrg.name
   location = azurerm_resource_group.myrg.location
-  size = "Standard_D2s_v3"
+  size = "Standard_BS1s"
   admin_username = "azureuser"
   network_interface_ids = [ azurerm_network_interface.myvmnic.id ]
   admin_ssh_key {
@@ -17,7 +17,7 @@ resource "azurerm_linux_virtual_machine" "mylinuxvm" {
     storage_account_type = "Standard_LRS"
   }
   source_image_reference {
-    publisher = "RedHat"
+    publisher = "Ubuntu"
     offer = "RHEL"
     sku = "83-gen2"
     version = "latest"
